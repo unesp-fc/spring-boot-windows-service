@@ -1,0 +1,1 @@
+org.springframework.boot.loader.tools.LayoutFactory=br.unesp.fc.spring.boot.loader.SpringLayoutFactory
