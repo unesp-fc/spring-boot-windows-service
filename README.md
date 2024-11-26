@@ -4,7 +4,7 @@ This project aims to make Spring Boot Loader compatible with Procrun (Apache Com
 
 ## Usage
 
-To use thos project, include it as a dependency of the `spring-boot-maven-plugin`. Example:
+To use this project, include it as a dependency of the `spring-boot-maven-plugin`. Example:
 
 ```xml
     <plugin>
