@@ -10,7 +10,6 @@ import org.springframework.boot.loader.tools.Layout;
 import org.springframework.boot.loader.tools.LayoutFactory;
 import org.springframework.boot.loader.tools.Layouts;
 import org.springframework.boot.loader.tools.LoaderClassesWriter;
-import org.springframework.boot.loader.tools.LoaderImplementation;
 import org.springframework.util.ClassUtils;
 
 public class SpringLayoutFactory implements LayoutFactory {
@@ -24,6 +23,7 @@ public class SpringLayoutFactory implements LayoutFactory {
     private static final String WINDOWS_SERVICE_INSTALL = SpringLayoutFactory.class.getPackageName() + ".WindowsServiceInstall";
     private static final String WINDOWS_SERVICE_INSTALL_POM_INFO = SpringLayoutFactory.class.getPackageName() + ".WindowsServiceInstall$PomInfo";
     private static final String LAUNCHER_SPRING = "SPRING_DEFAULT";
+    private static final String DEFAULT_LOADER_IMPLEMENTATION = "META-INF/loader/spring-boot-loader.jar";
 
     public String getLauncherClassName() {
         return launcherClassName;
@@ -53,7 +53,7 @@ public class SpringLayoutFactory implements LayoutFactory {
     }
 
     public static void writeLoadedClasses(LoaderClassesWriter writer) throws IOException {
-        writer.writeLoaderClasses(LoaderImplementation.DEFAULT);
+        writer.writeLoaderClasses(DEFAULT_LOADER_IMPLEMENTATION);
         var classes = List.of(WINDOWS_SERVICE_JAR_LAUNCHER, WINDOWS_SERVICE_WAR_LAUNCHER,
                 WINDOWS_SERVICE_LAUNCHER, WINDOWS_SERVICE_INSTALL, WINDOWS_SERVICE_INSTALL_POM_INFO);
         for (String klass : classes) {
